@@ -1,0 +1,14 @@
+---
+Name: links
+After:
+  - 'framework/*'
+  - 'cms/*'
+Only:
+  moduleexists: 'cms'
+---
+Link:
+  extensions:
+    - LinkSiteTreeExtension
+SiteTree:
+  extensions:
+    - SiteTreeLinkExtension

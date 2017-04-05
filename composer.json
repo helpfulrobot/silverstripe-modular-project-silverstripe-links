@@ -1,0 +1,27 @@
+{
+  "name": "silverstripe-modular-project/silverstripe-links",
+  "type": "silverstripe-module",
+  "description": "",
+  "license": "BSD",
+  "authors": [
+    {
+      "name": "Gorrie Coe",
+      "email": "gorriecoe@gmail.com"
+    }
+  ],
+  "keywords": [
+    "silverstripe",
+    "cms",
+    "link"
+  ],
+  "homepage": "http://github.com/silverstripe-modular-project/silverstripe-links",
+  "require": {
+    "php": ">=5.3.2",
+    "silverstripe/framework": "^3.5",
+    "silverstripe/cms": "^3.5",
+    "unclecheese/display-logic": "^1.4"
+  },
+  "extra": {
+    "installer-name": "links",
+  }
+}
