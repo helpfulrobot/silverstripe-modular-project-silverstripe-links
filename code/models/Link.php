@@ -273,7 +273,9 @@ class Link extends DataObject
         if ($this->LinkURL) {
             $link = $this->renderWith(
                 array(
-                    'Link_' . $this->Style, // Render link with this template if its found. eg Link_button.ss
+                    $this->Classname . '_' . $this->Style,
+                    $this->Classname,
+                    'Link_' . $this->Style,
                     'Link'
                 )
             );
@@ -414,7 +416,7 @@ class Link extends DataObject
                     }
                     break;
                 case 'Phone':
-                    if (!preg_match("/^\+?[0-9]{1,5}[- ]{0,1}[0-9]{3,4}[- ]{0,1}[0-9]{4}$/", $this->Phone)) {
+                    if (!preg_match("/^\+?[0-9a-zA-Z\-\s]*[\,\#]?[0-9\-\s]*$/", $this->Phone)) {
                         $valid = false;
                         $message = _t('Links.VALIDATIONERROR_VALIDPHONE', 'Please enter a valid Phone number');
                     }
@@ -423,6 +425,7 @@ class Link extends DataObject
         }
 
         $result = ValidationResult::create($valid, $message);
+
         $this->extend('updateValidate', $result);
         return $result;
     }
