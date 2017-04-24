@@ -4,7 +4,7 @@
  * Fixes duplicate link in SiteTree
  *
  * @package silverstripe
- * @subpackage mysite
+ * @subpackage silverstripe-links
  */
 class SiteTreeLinkExtension extends DataExtension
 {

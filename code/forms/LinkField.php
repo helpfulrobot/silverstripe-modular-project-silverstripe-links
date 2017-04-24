@@ -4,11 +4,10 @@
  * LinkField
  *
  * @package silverstripe
- * @subpackage mysite
+ * @subpackage silverstripe-links
  */
 class LinkField extends TextField
 {
-
     /**
      * @var Boolean
      **/
@@ -26,11 +25,15 @@ class LinkField extends TextField
      **/
     protected $allowed_types = null;
 
-    public static $allowed_actions = array(
-        'LinkForm',
-        'LinkFormHTML',
-        'doSaveLink',
-        'doRemoveLink'
+    /**
+     * Defines methods that can be called directly
+     * @var array
+     */
+    private static $allowed_actions = array(
+        'LinkForm' => true,
+        'LinkFormHTML' => true,
+        'doSaveLink' => true,
+        'doRemoveLink' => true
     );
 
     public function Field($properties = array())
@@ -146,12 +149,10 @@ class LinkField extends TextField
         return $this->LinkForm()->forTemplate();
     }
 
-
     public function getIsFrontend()
     {
         return $this->isFrontend;
     }
-
 
     public function setIsFrontend($bool)
     {

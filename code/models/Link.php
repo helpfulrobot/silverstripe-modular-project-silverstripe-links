@@ -4,7 +4,7 @@
  * Link
  *
  * @package silverstripe
- * @subpackage mysite
+ * @subpackage silverstripe-links
  */
 class Link extends DataObject
 {

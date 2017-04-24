@@ -4,7 +4,7 @@
  * Add sitetree type to link field
  *
  * @package silverstripe
- * @subpackage mysite
+ * @subpackage silverstripe-links
  */
 class LinkSiteTreeExtension extends DataExtension
 {

@@ -3,7 +3,7 @@
  * Adds methods to StringField to help manipulate the output suitable for links
  *
  * @package silverstripe
- * @subpackage mysite
+ * @subpackage silverstripe-links
  */
 class StringFieldLinkExtension extends DataExtension
 {
