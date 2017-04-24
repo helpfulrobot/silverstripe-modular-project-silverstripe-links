@@ -259,7 +259,7 @@ class Link extends DataObject
         foreach ($types as $key => $label) {
             $i18nTypes[$key] = _t('Links.TYPE'.strtoupper($key), $label);
         }
-
+        $this->extend('updateTypes', $i18nTypes);
         return $i18nTypes;
     }
 
