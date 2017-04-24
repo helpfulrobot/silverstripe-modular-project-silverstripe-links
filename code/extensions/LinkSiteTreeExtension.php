@@ -40,6 +40,13 @@ class LinkSiteTreeExtension extends DataExtension
     {
         $owner = $this->owner;
 
+        $fields->removeByName(
+            array(
+                'SiteTreeID',
+                'Anchor'
+            )
+        );
+
         // Insert site tree field after the file selection field
         $fields->insertAfter(
             'Type',

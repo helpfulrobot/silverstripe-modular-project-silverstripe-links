@@ -88,13 +88,11 @@ class Link extends DataObject
 
         $fields->removeByName(
             array(
-                'SiteTreeID',
                 // seem to need to remove both of these for different SS versions...
                 'FileID',
                 'File',
 
-                'Template',
-                'Anchor'
+                'Template'
             )
         );
 

@@ -1,8 +1,8 @@
 {
   "name": "silverstripe-modular-project/silverstripe-links",
-  "type": "silverstripe-module",
   "description": "",
-  "license": "BSD",
+  "type": "silverstripe-module",
+  "license": "BSD-3-Clause",
   "authors": [
     {
       "name": "Gorrie Coe",
@@ -11,6 +11,7 @@
   ],
   "keywords": [
     "silverstripe",
+    "modular",
     "cms",
     "link"
   ],
