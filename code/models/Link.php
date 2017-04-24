@@ -304,7 +304,8 @@ class Link extends DataObject
                  $LinkURL = $this->Email ? "mailto:$this->Email" : null;
                  break;
              case 'Phone':
-                 $LinkURL = $this->Phone ? "tel:$this->Phone" : null;
+                 $phone = $this->obj('Phone')->PhoneFriendly();
+                 $LinkURL = $phone ? "tel:$phone" : null;
                  break;
              default:
                  if ($type && $component = $this->getComponent($type)) {
@@ -319,6 +320,7 @@ class Link extends DataObject
                  }
                  break;
          }
+
          $this->extend('updateLinkURL', $LinkURL);
          return $LinkURL;
      }
@@ -334,9 +336,9 @@ class Link extends DataObject
         if ($this->Style) {
             $classes[] = $this->Style;
         }
+
         $this->extend('updateClasses', $classes);
-        $classes = implode(' ', $classes);
-        return $classes;
+        return implode(' ', $classes);
     }
 
     /**

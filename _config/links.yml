@@ -3,6 +3,11 @@ Name: links
 After:
   - 'framework/*'
   - 'cms/*'
+---
+StringField:
+  extensions:
+    - StringFieldLinkExtension
+---
 Only:
   moduleexists: 'cms'
 ---
