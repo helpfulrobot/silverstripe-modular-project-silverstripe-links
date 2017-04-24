@@ -271,17 +271,38 @@ class Link extends DataObject
     public function forTemplate()
     {
         if ($this->LinkURL) {
-            $link = $this->renderWith(
-                array(
-                    $this->Classname . '_' . $this->Style,
-                    $this->Classname,
-                    'Link_' . $this->Style,
-                    'Link'
-                )
-            );
+            $link = $this->renderWith($this->RenderTemplates);
 
             $this->extend('updateTemplate', $link);
             return $link;
+        }
+    }
+
+    /**
+     * Returns a list of rendering templates
+     *
+     * @return array
+     **/
+    public function getRenderTemplates()
+    {
+        $class = $this->Classname;
+        $templates = array();
+        if (is_object($class)) $class = get_class($class);
+
+        if (!is_subclass_of($class, 'DataObject')) {
+            throw new InvalidArgumentException("$class is not a subclass of DataObject");
+        }
+
+        while ($next = get_parent_class($class)) {
+            if ($this->Style) {
+                $templates[] = $class . '_' . $this->Style;
+            }
+            $templates[] = $class;
+            if ($next == 'DataObject') {
+                return $templates;
+            }
+
+            $class = $next;
         }
     }
 
