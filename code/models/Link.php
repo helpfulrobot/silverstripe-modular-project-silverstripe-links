@@ -42,12 +42,12 @@ class Link extends DataObject
     );
 
     /**
-     * A map of templates that are available for rendering
-     * Link objects with
+     * A map of styles that are available in the cms for
+     * users to select from.
      *
      * @var array
      */
-    private static $templates = array();
+    private static $styles = array();
 
     /**
      * A map of object types that can be linked to
@@ -204,7 +204,7 @@ class Link extends DataObject
     }
 
     /**
-     * Add CSS classes.
+     * Set CSS classes for templates
      *
      * @param string $class CSS classes.
      * @return Link
@@ -216,12 +216,24 @@ class Link extends DataObject
     }
 
     /**
-     * Sets allowed link types
+     * Set style used for
      *
-     * @param array
+     * @param string $style
      * @return Link
      **/
-    public function setAllowedTypes($types = null)
+    public function setStyle($style)
+    {
+        $this->style = $style;
+        return $this;
+    }
+
+    /**
+     * Sets allowed link types
+     *
+     * @param array $types Allowed type names
+     * @return Link
+     **/
+    public function setAllowedTypes($types = array())
     {
         $this->allowed_types = $types;
         return $this;

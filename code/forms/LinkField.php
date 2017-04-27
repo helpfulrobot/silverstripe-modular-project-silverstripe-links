@@ -38,7 +38,7 @@ class LinkField extends TextField
 
     public function Field($properties = array())
     {
-        Requirements::javascript(LINKABLE_PATH . '/javascript/linkfield.js');
+        Requirements::javascript(LINKS_PATH . '/javascript/linkfield.js');
         return parent::Field();
     }
 
@@ -68,8 +68,8 @@ class LinkField extends TextField
         $link->setAllowedTypes($this->getAllowedTypes());
         $fields = $link->getCMSFields();
 
-        $title = $link ? _t('.EDITLINK', 'Edit Link') : _t('.ADDLINK', 'Add Link');
-        $fields->insertBefore(HeaderField::create('LinkHeader', $title), _t('.TITLE', 'Title'));
+        $title = $link ? _t('links.EDITLINK', 'Edit Link') : _t('links.ADDLINK', 'Add Link');
+        $fields->insertBefore(HeaderField::create('LinkHeader', $title), _t('links.TITLE', 'Title'));
         $actions = FieldList::create($action);
         $form = Form::create($this, 'LinkForm', $fields, $actions);
 
@@ -160,9 +160,16 @@ class LinkField extends TextField
         return $this->this;
     }
 
-    public function setAllowedTypes($types = array())
+    /**
+     * Sets allowed link types
+     *
+     * @param string $type type name
+     * @param string,... $types Additional type names
+     * @return Link
+     **/
+    public function setAllowedTypes()
     {
-        $this->allowed_types = $types;
+        $this->allowed_types = func_get_args();
         return $this;
     }
 
